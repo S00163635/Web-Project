@@ -7,6 +7,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
+import { MovieComponent } from './home/movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
     MoviesComponent,
     AboutComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule
