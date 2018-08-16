@@ -1,6 +1,5 @@
 <div class='panel panel-primary'>
-  <div class='panel-heading'>
-    {{Title}}
+  <div class='panel-heading'id='header'>
     </div>
     <div class= 'panel-body'>
       <div class='row'>
@@ -15,31 +14,36 @@
         </div>
       </div>
 
-<div class="table-responsive" >
+<div class="table-responsive" *ngIf='movies && movies.length'> 
   <table class="table">
     <thead>
     <tr>
       <th>
-        <button class='btn btn-primary'>
-          Show Images
+        <button id='imagebutton' class='btn btn-primary'(click) = 'ShowImageMethod()'>
+            {{showImage ? 'Hide':'Show'}} Image
+            
         </button>
       </th>
-      <th>movie</th>
+      <th>Movie</th>
       <th>Year</th>
       <th>Rated</th>
-      <th>Genre</th>
-      <th>IMDB Rating</th>
+      <th>ImdbID</th>
+      <th>Star Rating</th>
     </tr>
     </thead>
     <tbody>
-    <tr >
-      <td>
-        
-      </td>
-      <td> Title here </td>
-      <td> Year here </td>
-      <td> movie rated here </td>
-      <td> genre here </td>
+    <tr *ngFor= 'let movie of movies' class="movie" >
+             <td>
+              <img *ngIf='showImage'
+              [src]= 'movie.Poster'
+             [title]='movie.Title'
+             [style.width.px]='imageWidth'
+             [style.margin.px]='imageMargin'>
+        </td>
+      <td> {{movie.Title}} </td>
+      <td> {{movie.Year}} </td>
+      <td> {{movie.Rated}} </td>
+      <td> {{movie.imdbID | uppercase }} </td>
       </tr>
 
     </tbody>

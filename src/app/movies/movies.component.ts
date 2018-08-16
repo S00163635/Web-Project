@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../movie.service';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription} from 'rxjs';
+import { IMovie } from '../IMovie';
+import { NgForm } from '@angular/forms/src/directives';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-movies',
@@ -7,9 +13,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesComponent implements OnInit {
 
-  constructor() { }
+  movie: IMovie;
+  subscription: Subscription;
+
+  constructor(private route: ActivatedRoute, private _moviesService: MoviesService,private toastr : ToastrService) { }
 
   ngOnInit() {
+    this.subscription = this.route.params.subscribe(params => {
+      const id = params['id'];
+      this._moviesService.getMovieById(id)
+        .subscribe((movie: IMovie) => {
+          this.movie = movie;
+        })
+    })
   }
 
 }

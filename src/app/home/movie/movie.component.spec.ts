@@ -14,6 +14,7 @@ describe('MovieComponent', () => {
   }));
 
   beforeEach(() => {
+    
     fixture = TestBed.createComponent(MovieComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

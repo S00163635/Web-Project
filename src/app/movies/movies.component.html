@@ -1,3 +1,21 @@
-<p>
-  movies works!
-</p>
+<div class="row" *ngIf="movie">
+    <div class="col-sm-4">
+      <img [src]="movie.Poster" class="img-responsive" />
+    </div>
+    <div class="col-sm-8">
+      <h1>{{movie.Title}}</h1>
+      <div class="row info">
+          <div class="col-sm-4">Year</div>
+          <div class="col-sm-8">{{movie.Year}}</div>
+        </div>
+      <div class="row info">
+        <div class="col-sm-4">Price</div>
+        <div class="col-sm-8">{{movie.Price}}</div>
+      </div>
+      <div class="row info">
+          <div class="col-sm-4">Genre</div>
+          <div class="col-sm-8">{{movie.Genre}}</div>
+        </div>
+     </div>
+  </div>
+  

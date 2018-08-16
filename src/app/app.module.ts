@@ -9,6 +9,14 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { MovieComponent } from './home/movie/movie.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MoviesService } from './movie.service';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +28,12 @@ import { MovieComponent } from './home/movie/movie.component';
     MovieComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule, 
+    FormsModule
+    
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
