@@ -9,6 +9,9 @@ export class authService {
     readonly rootUrl = 'http://localhost:4200';
     constructor(private http: HttpClient) { }
 
+    //some authentication + login websites/youtube videos I used
+    //https://angular-templates.io/tutorials/about/firebase-authentication-with-angular
+    //https://www.youtube.com/watch?v=rajjv-0bSps
     
   registerUser(user : User){
     const body: User = {
