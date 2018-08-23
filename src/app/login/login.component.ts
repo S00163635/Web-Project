@@ -27,11 +27,13 @@ export class LoginComponent implements OnInit {
   }
   
   //searching for entered email and password to see if they are currently a user
-    OnSubmit(Email,Password){
-      this.authService.userAuthentication(Email,Password).subscribe((data : any)=>{
+    OnSubmit(UserName,Password){
+      this.authService.userAuthentication(UserName,Password).subscribe((data : any)=>{
        localStorage.setItem('userToken',data.access_token);
        this.router.navigate(['/home']);
      },
+
+     //security for login is working (to work html is compromised and doesn't look as user friendly/stylish as before) 
      (err : HttpErrorResponse)=>{
        this.isLoginError = true; //if they are not a current user
      });

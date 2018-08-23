@@ -11,7 +11,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  userInfo : User;
+  
+  //https://stackoverflow.com/questions/47632357/binding-an-input-to-undefined-object-with-ngmodel-in-order-to-create-new-user?noredirect=1&lq=1
+  userInfo = <User>{}
+
   constructor(private authService: authService,private router: Router,private toastr : ToastrService) { 
 
     //tried to fix the error "Cannot read property 'UserName' of undefined" with this to define 

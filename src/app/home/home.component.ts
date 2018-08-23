@@ -4,6 +4,7 @@ import { MoviesService } from '../movie.service';
 import 'rxjs/add/operator/switchMap';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription} from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
   
 
 
-  constructor( private movieServiceVariable: MoviesService,private route: ActivatedRoute  ) { 
+  constructor( private movieServiceVariable: MoviesService,private route: ActivatedRoute ,private router: Router ) { 
 
     this.title = "Rent-Flix";
   }
@@ -48,6 +49,21 @@ export class HomeComponent implements OnInit {
      }
    })
   }
+
+//   filterMovies(search) {
+//     if (search) {
+//       this.router.navigate(['home', { search: search }]);
+//   this.subscription = this.route.params.subscribe(params => {
+//     this.filtered = params['filter'];
+//     if (this.filtered) {
+//       this.movieServiceVariable.getMoviesByFilteredBy(this.filtered)
+//         .subscribe((movies: IMovie[]) => {
+//           this.filteredMovies = movies;
+//         })
+//     }
+//   })
+// }
+  
 
    ngOnDestroy() {
      this.subscription.unsubscribe();
