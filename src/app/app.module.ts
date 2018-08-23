@@ -10,9 +10,25 @@ import { LoginComponent } from './login/login.component';
 import { MovieComponent } from './home/movie/movie.component';
 
 import { HttpClientModule } from '@angular/common/http';
+
+//for log in form
 import { FormsModule } from '@angular/forms';
+
+
+//movie service for api
 import { MoviesService } from './movie.service';
 
+//routing
+import { routes } from './app.router';
+//import { RouterModule, routes } from '@angular/router';
+
+
+//  const router: Routes = [
+//   { path: 'home', component: HomeComponent },
+//   { path: 'about', component: AboutComponent },
+//   {path: '', redirectTo:'/home', pathMatch: 'full'}
+
+// ];
 
 
 
@@ -30,7 +46,9 @@ import { MoviesService } from './movie.service';
   imports: [
     BrowserModule,
     HttpClientModule, 
-    FormsModule
+    FormsModule,
+    //RouterModule.forRoot(router)
+    routes
     
   ],
   providers: [MoviesService],

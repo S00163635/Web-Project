@@ -34,6 +34,12 @@ export class MoviesService {
       .catch(this.handleError)
   }
 
+  getMoviesByFilteredBy(filtered: string): Observable<IMovie[]> {
+    return this._http.get<IMovie[]>(`${this.movieAPIurl}&&s=${filtered}`)
+      .map(response => response['Filtered'])
+      .do(data => console.log('Movies: ' + JSON.stringify(data)))
+      .catch(this.handleError)
+  }
 
   private handleError(err : HttpErrorResponse){
     return Observable.throw(err.message);

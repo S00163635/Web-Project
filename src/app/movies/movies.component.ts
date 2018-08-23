@@ -16,7 +16,7 @@ export class MoviesComponent implements OnInit {
   movie: IMovie;
   subscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private _moviesService: MoviesService,private toastr : ToastrService) { }
+  constructor(private route: ActivatedRoute, private _moviesService: MoviesService) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {

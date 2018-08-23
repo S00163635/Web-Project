@@ -1,20 +1,17 @@
+
+
+
 <div class='panel panel-primary'>
-  <div class='panel-heading'id='header'>
-    </div>
-    <div class= 'panel-body'>
-      <div class='row'>
-        <div class='col-md-2'>Filter By:</div>
-        <div class='col-md-4'>
-          <input type='text'/>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-6'>
-          <h3> Filtered By: </h3>
-        </div>
-      </div>
+ 
+       
 
 <div class="table-responsive" *ngIf='movies && movies.length'> 
+    <div class="searchbar">
+        <form class="form-inline my-2 my-lg-0" (click)="filterMovies(search.value)">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" #search>
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+    </div>
   <table class="table">
     <thead>
     <tr>
@@ -28,7 +25,7 @@
       <th>Year</th>
       <th>Rated</th>
       <th>ImdbID</th>
-      <th>Star Rating</th>
+      <th>Genre</th>
     </tr>
     </thead>
     <tbody>
@@ -44,10 +41,10 @@
       <td> {{movie.Year}} </td>
       <td> {{movie.Rated}} </td>
       <td> {{movie.imdbID | uppercase }} </td>
+      <td> {{movie.Genre}}</td>
       </tr>
 
     </tbody>
   </table>
-</div>
 </div>
 </div>

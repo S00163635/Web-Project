@@ -1,1 +1,23 @@
-<app-home></app-home>
+ <div class="header">
+        <a class="logo"> {{title}} </a>
+        <div class="header-right"  routerLinkActive="active">
+         
+            <a class="active" routerLink="/home" (click)="btnHome();"> Home </a>
+                    
+            <a class="contact" routerLink="/about" (click)="btnAbout();"> About </a>
+                   
+            <a class="about" routerLink="/Login" (click)="btnLogin();"> Login </a>
+          
+        </div>
+      </div>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'id='header'>
+              </div>
+              </div>
+      <div>
+            <router-outlet></router-outlet>
+      </div>
+
+      
+
+     
