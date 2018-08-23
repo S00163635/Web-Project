@@ -19,6 +19,7 @@ export class MoviesComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _moviesService: MoviesService) { }
 
   ngOnInit() {
+    //find movie through API by ID
     this.subscription = this.route.params.subscribe(params => {
       const id = params['id'];
       this._moviesService.getMovieById(id)

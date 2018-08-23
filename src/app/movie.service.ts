@@ -34,6 +34,7 @@ export class MoviesService {
       .catch(this.handleError)
   }
 
+  //filtered/searched movies
   getMoviesByFilteredBy(filtered: string): Observable<IMovie[]> {
     return this._http.get<IMovie[]>(`${this.movieAPIurl}&&s=${filtered}`)
       .map(response => response['Filtered'])

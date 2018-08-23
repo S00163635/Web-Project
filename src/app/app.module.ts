@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
+
+//components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MoviesComponent } from './movies/movies.component';
@@ -8,11 +11,27 @@ import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { MovieComponent } from './home/movie/movie.component';
+import { RegisterComponent } from './register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HttpClientModule } from '@angular/common/http';
+
+
 
 //for log in form
-import { FormsModule } from '@angular/forms';
+//https://stackoverflow.com/questions/39152071/cant-bind-to-formgroup-since-it-isnt-a-known-property-of-form
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+//firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+//Toast - needed to send alert that registeration was sucessful
+//https://www.npmjs.com/package/ngx-toastr
+import {ToastrModule } from 'ngx-toastr';
+
 
 
 //movie service for api
@@ -20,16 +39,7 @@ import { MoviesService } from './movie.service';
 
 //routing
 import { routes } from './app.router';
-//import { RouterModule, routes } from '@angular/router';
-
-
-//  const router: Routes = [
-//   { path: 'home', component: HomeComponent },
-//   { path: 'about', component: AboutComponent },
-//   {path: '', redirectTo:'/home', pathMatch: 'full'}
-
-// ];
-
+import { authService } from './auth.service';
 
 
 
@@ -41,17 +51,25 @@ import { routes } from './app.router';
     AboutComponent,
     UserComponent,
     LoginComponent,
-    MovieComponent
+    MovieComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule, 
     FormsModule,
-    //RouterModule.forRoot(router)
-    routes
+    ReactiveFormsModule,
+    routes,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,// for database
+    AngularFireAuthModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule //needed for toast
+
+   
     
   ],
-  providers: [MoviesService],
+  providers: [MoviesService, authService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

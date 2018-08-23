@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -16,6 +17,8 @@ export class MovieComponent implements OnInit {
   imageWidth: number = 75;
   imageMargin: number = 2;
   showImage: boolean = false;
+
+ ;
 
   constructor(private router: Router) { }
 
@@ -58,9 +61,12 @@ export class MovieComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
+  //this feature navigates to a the home page with the entered search word applied
+  //have not been able to connect this code with my filtered movie code in the home component without errors
   filterMovies(search) {
     if (search) {
       this.router.navigate(['home', { search: search }]);
+      
     }
   
 }

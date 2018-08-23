@@ -8,4 +8,4 @@ export const environment = {
   messagingSenderId: "429851244460"
 };
 
-// firebase.initializeApp(config);
+

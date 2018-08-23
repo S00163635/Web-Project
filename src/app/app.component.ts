@@ -21,6 +21,9 @@ btnAbout= function () {
 btnLogin= function () {
   this.router.navigateByUrl('/login');
 };
+btnRegister= function () {
+  this.router.navigateByUrl('/register');
+};
 
 
 

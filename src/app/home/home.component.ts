@@ -32,11 +32,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    //searching through api using the ID
     this.movieServiceVariable.getMovies(this.movieIds).subscribe((movies: IMovie[]) => {
       this.movies = movies;
     });
   
-
+//this code is searching through the api and subscribing to that movie with the searched word instead of the ID
    this.subscription = this.route.params.subscribe(params => {
      this.filtered = params['filter'];
      if (this.filtered) {
